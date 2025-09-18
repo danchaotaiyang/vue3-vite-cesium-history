@@ -7,18 +7,24 @@
 @for $i from 0 through 1000 {
     @if $i % 5==0 {
         .form-width-#{$i} {
-            width: #{$i + px};
+            --el-input-width: #{$i + px};
+            --el-select-width: #{$i + px};
+            --el-date-editor-width: #{$i + px};
 
             .el-input {
-                width: #{$i + px};
+                --el-input-width: #{$i + px};
             }
 
             .el-input-number {
-                width: #{$i + px};
+                --el-input-width: #{$i + px};
+            }
+
+            .el-textarea {
+                --el-input-width: #{$i + px};
             }
 
             &.el-date-editor {
-                width: #{$i + px};
+                --el-date-editor-width: #{$i + px};
             }
 
             &.el-input-group {
