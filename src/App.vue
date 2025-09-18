@@ -5,9 +5,9 @@
 </template>
 
 <style lang="scss">
-@use 'asset/css/root.scss';
-@use 'asset/css/redefine.scss';
+@use 'assets/css/root.scss';
+@use 'assets/css/redefine.scss';
 @use 'element-plus/dist/index.css';
-@use 'asset/css/element-plus.scss';
-@use 'asset/css/layout.scss';
+@use 'assets/css/element-plus.scss';
+@use 'assets/css/layout.scss';
 </style>

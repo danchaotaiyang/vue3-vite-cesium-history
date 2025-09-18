@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import errorRouters from '../view/error/index.js';
-import { $emitter } from '@/asset/js/mitt.js';
+import errorRouters from '@/views/error/index.js';
+import { $emitter } from '@/assets/js/mitt.js';
 import { BRAND, USE_AUTHENTICATION } from '@/config';
 import { useSignStore } from '@/store';
 

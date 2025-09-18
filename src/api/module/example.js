@@ -1,3 +1,3 @@
-import { $http } from '@/asset/js/axios.js';
+import { $http } from '@/assets/js/axios.js';
 
 export const example = (data) => $http.post('', data);

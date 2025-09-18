@@ -1,6 +1,6 @@
 <script setup>
 import { markRaw, readonly, ref } from 'vue';
-import { $emitter } from '@/asset/js/mitt.js';
+import { $emitter } from '@/assets/js/mitt.js';
 
 
 defineOptions({

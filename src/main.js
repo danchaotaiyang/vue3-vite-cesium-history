@@ -4,7 +4,7 @@ import pinia from './store';
 import App from './App.vue';
 import ElementPlus from 'element-plus';
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs';
-import Components from './component';
+import Components from './components';
 import Directives from './directive';
 
 
