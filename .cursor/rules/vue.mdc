@@ -1,0 +1,141 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+---
+description: Vue 3 项目开发规范指南，旨在统一代码风格、提高代码质量和协作效率。
+globs:
+  - "**/*.vue"
+  - "**/*.ts"
+  - "**/*.js"
+alwaysApply: true
+---
+
+# Vue 3 开发规范指南
+
+## 1. 代码风格
+
+### 1.1 缩进
+- 所有 `.vue`, `.ts`, `.js`, `.scss`, `.html` 文件均使用 **4 个空格** 进行缩进。
+- `<script>`, `<template>`, `<style>` 顶级标签内部的第一级元素需要缩进。
+- HTML 标签的子元素需要缩进。
+
+### 1.2 语法
+- **强制使用 ES6+** 现代 JavaScript 语法特性。
+- **推荐使用 TypeScript** 以增强代码的类型安全。
+
+### 1.3 命名规范
+- **组件**:
+    - 单文件组件的文件名应始终是 **PascalCase** (首字母大写驼峰式)，例如 `MyComponent.vue`。
+    - 在模板或 JSX 中引用组件时使用 **PascalCase**，例如 `<MyComponent />`。
+    - 根组件 `App.vue` 和路由组件可以使用 **kebab-case** (短横线分隔)，但内部组件推荐 **PascalCase**。
+- **Props**: 在声明 `prop` 时使用 **camelCase** (小驼峰式)，在模板和 JSX 中使用 **kebab-case**。
+- **常量**: 使用 **UPPER_CASE** (全大写下划线分隔)，例如 `const MAX_COUNT = 10;`。
+- **变量/函数**: 使用 **camelCase**，例如 `let userName = 'xxx'; function getUserInfo() {}`。
+- **文件/目录**: 使用 **kebab-case** 或 **camelCase**，保持项目内统一。
+
+### 1.4 代码格式化
+- **强制使用 Prettier** 进行代码格式化，确保团队风格统一。
+- 遵循项目根目录下的 `.prettierrc.js` 或 `.prettierrc.json` 配置文件。
+
+### 1.5 Linting
+- **强制使用 ESLint** 进行代码质量检查。
+- 遵循项目根目录下的 `.eslintrc.js` 或 `.eslintrc.json` 配置文件。
+- 推荐使用 `@vue/eslint-config-typescript` 和 `eslint-plugin-vue`。
+
+## 2. Vue 组件规范
+
+### 2.1 组件结构
+- **强制使用 `<script setup>`** 语法糖简化单文件组件的编写。
+- `<script setup>` 应当放在 `<template>` 之前。
+- `<style>` 标签应放在最后，若使用了 `scoped`，请添加 `scoped` 属性。
+
+### 2.2 Props & Emits
+- **必须为 `props` 提供明确的类型定义** (使用 TypeScript 或 `PropTypes`)。
+- **必须为 `emits` 提供明确的定义** (使用数组或对象形式)。
+- 尽可能为 `props` 提供 `required` 和 `default` 值。
+
+### 2.3 组合式 API (Composition API)
+- **优先使用组合式 API** 组织逻辑，提高代码的可复用性和可维护性。
+- 复杂逻辑建议拆分为独立的 `composable` 函数。
+
+### 2.4 异步组件与 Suspense
+- 对于非首屏必须的组件，**推荐使用 `defineAsyncComponent` 进行异步加载**。
+- 配合 `<Suspense>` 处理异步组件加载状态，提升用户体验。
+
+### 2.5 Teleport
+- 需要将部分 DOM 移动到组件层级之外时，**使用 `<Teleport>` 组件**。
+
+### 2.6 Provide/Inject
+- 仅在需要进行跨层级组件通信且 Props Drilling 不适用时，谨慎使用 `provide/inject`。
+
+## 3. 状态管理
+
+- **强制使用 Pinia** 作为项目的状态管理库。
+- Store 的模块划分应根据业务领域或功能进行。
+- 避免在 Store 中进行复杂的业务逻辑，保持其职责单一（主要负责状态的读写和简单计算）。
+
+## 4. 事件处理
+
+- 组件间通信优先使用 `props` 和 `emits`。
+- 跨组件或全局事件通信，**推荐使用 `mitt`** 或其他轻量级事件总线库，但需谨慎使用，避免滥用导致逻辑混乱。
+
+## 5. CSS 预处理
+
+- **强制使用 SCSS** 作为 CSS 预处理语言。
+- 推荐使用 CSS Modules 或 `scoped` 属性来限制样式作用域，避免全局污染。
+- 善用 SCSS 变量、混合 (Mixin)、嵌套等特性提高样式代码的可维护性。
+
+## 6. 工具链
+
+- **使用 Vite** 作为开发和构建工具。
+- 熟悉 Vite 的配置和插件生态，按需进行优化。
+
+## 7. 工程化
+
+### 7.1 Git 规范
+- 遵循 **Conventional Commits** 规范进行 Git 提交。
+- 使用 `commitizen` 和 `commitlint` 工具辅助规范提交。
+- 保持清晰的分支策略（如 Gitflow 或 GitHub Flow）。
+
+### 7.2 目录结构
+- 遵循社区推荐或团队约定的目录结构，例如：
+  ```
+  src/
+  ├── api/          # API请求或服务
+  ├── assets/       # 全局样式、变量、混合等静态资源 (图片、字体等)
+  ├── components/   # 全局通用组件
+  ├── router/       # 路由配置
+  ├── store/        # Pinia状态管理
+  ├── utils/        # 工具函数
+  ├── views/        # 页面级组件 (路由组件)
+  └── main.js       # 应用入口文件
+  ```
+
+## 8. 性能优化
+
+- **路由懒加载**: 所有页面级组件必须使用路由懒加载 (`() => import('@/views/MyView.vue')`)。
+- **组件懒加载**: 对于非关键、体积较大的组件，使用 `defineAsyncComponent`。
+- **合理使用 `v-if` 和 `v-show`**: 根据条件渲染的频率和初始渲染成本选择。
+- **`v-for` 必须绑定 `key`**: 且 `key` 应为稳定且唯一的值。
+- **优化图片和静态资源**: 使用合适的格式、压缩、CDN 等。
+- **关注包体积**: 定期使用 `rollup-plugin-visualizer` 等工具分析并优化。
+
+## 9. 测试
+
+- **单元测试**:
+    - 对核心业务逻辑、`composable` 函数、工具函数编写单元测试。
+    - 推荐使用 `Vitest` 作为测试运行器。
+    - 推荐使用 `@vue/test-utils` 进行组件单元测试。
+- **端到端测试 (E2E)**:
+    - 对关键用户流程编写 E2E 测试。
+    - 推荐使用 `Cypress` 或 `Playwright`。
+
+## 10. 文档与注释
+
+- **组件文档**: 复杂或可复用的组件应在 `<script setup>` 顶部或单独的 Markdown 文件中编写注释文档，说明其用途、Props、Emits、Slots 等。
+- **代码注释**:
+    - 对复杂的逻辑、算法或需要特殊说明的地方添加必要的注释。
+    - 遵循 JSDoc 或 TSDoc 规范编写函数/方法注释。
+    - 避免无意义的注释（如：`// 定义一个变量`）。 

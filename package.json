@@ -1,0 +1,32 @@
+{
+    "name": "fe-vue-3-vite",
+    "private": true,
+    "version": "1.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite --host",
+        "build": "vite build",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "@element-plus/icons-vue": "^2.3.2",
+        "cesium": "^1.133.1",
+        "element-plus": "^2.11.2",
+        "mitt": "^3.0.1",
+        "pinia": "^3.0.3",
+        "pinia-plugin-persistedstate": "^4.5.0",
+        "vue": "^3.5.21",
+        "vue-router": "^4.5.1"
+    },
+    "devDependencies": {
+        "@vitejs/plugin-legacy": "^7.2.1",
+        "@vitejs/plugin-vue": "^6.0.1",
+        "code-inspector-plugin": "^1.2.9",
+        "rollup-plugin-visualizer": "^6.0.3",
+        "sass-embedded": "^1.92.1",
+        "terser": "^5.44.0",
+        "vite": "^7.1.5",
+        "vite-plugin-cesium": "^1.2.23",
+        "vite-plugin-inspect": "^11.3.3"
+    }
+}
