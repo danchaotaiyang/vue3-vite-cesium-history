@@ -5,7 +5,7 @@ import { BRAND, USE_AUTHENTICATION } from '@/config';
 import { useSignStore } from '@/store';
 
 
-const modules = import.meta.glob('../view/**/index.js', { eager: true, import: 'default' });
+const modules = import.meta.glob('../views/**/index.js', { eager: true, import: 'default' });
 const routerModules = [];
 
 for (const key in modules) {
