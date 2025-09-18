@@ -8,7 +8,7 @@ defineOptions({
 <router-view v-slot="{ Component }">
     <transition appear name="fade">
         <suspense>
-            <div class="width-100-v height-100-v"><component :is="Component"></component></div>
+            <div><component :is="Component"></component></div>
             <template #fallback>
             <div class="d-flex justify-content-center align-items-center">加载中……</div>
             </template>
