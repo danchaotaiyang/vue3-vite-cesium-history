@@ -51,7 +51,7 @@ export const useRecordOfJapaneseWarCrimesDuringTheInvasionOfChinaStore = defineS
     };
 
     const setTimeline = () => {
-        viewer.timeline.makeLabel = (time) => dayjs(Cesium.JulianDate.toDate(time)).format('YYYY-MM-DD dddd');
+        viewer.timeline.makeLabel = (time) => dayjs(Cesium.JulianDate.toDate(time)).format('YYYY-MM-DD');
     };
 
     const addImageryLayerMapbox = async () => {
@@ -80,14 +80,12 @@ export const useRecordOfJapaneseWarCrimesDuringTheInvasionOfChinaStore = defineS
         try {
 
             let currentTime = Cesium.JulianDate.fromDate(new Date(data[ currentNode.value ].time));
-            let startTime = Cesium.JulianDate.addDays(currentTime.clone(), -2, new Cesium.JulianDate());
-            let stopTime = Cesium.JulianDate.addDays(currentTime.clone(), 2, new Cesium.JulianDate());
+            let startTime = Cesium.JulianDate.addDays(currentTime.clone(), -3, new Cesium.JulianDate());
+            let stopTime = Cesium.JulianDate.addDays(currentTime.clone(), 18, new Cesium.JulianDate());
 
             if (startTime && stopTime) {
 
                 viewer.timeline.zoomTo(startTime, stopTime);
-                viewer.clock.startTime = startTime.clone();
-                viewer.clock.stopTime = stopTime.clone();
                 viewer.clock.currentTime = currentTime.clone();
             }
         } catch (e) {
