@@ -2082,10 +2082,10 @@ electron-to-chromium@^1.5.73:
   resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.5.136.tgz#854b45e6a892137762cb026ed6ec77391fc5c07b"
   integrity sha512-kL4+wUTD7RSA5FHx5YwWtjDnEEkIIikFgWHR4P6fqjw1PPLlqYkxeOb++wAauAssat0YClCy8Y3C5SxgSkjibQ==
 
-element-plus@^2.11.2:
-  version "2.11.2"
-  resolved "https://registry.npmmirror.com/element-plus/-/element-plus-2.11.2.tgz#f1ba573426217ec936401fc4dc2a19bf11f5622e"
-  integrity sha512-sTMDXtgeqy17TUsBSH/DL3h1/5sqIOVUUgXFoVbdD8lWWYssKrDX50CEYy4k29tYJhPHKZyFSwcLJsIajr+dDA==
+element-plus@^2.11.3:
+  version "2.11.3"
+  resolved "https://registry.npmmirror.com/element-plus/-/element-plus-2.11.3.tgz#97e94e9aa399e240be5591d3f1c008d965cb9ab3"
+  integrity sha512-769xsjLR4B9Vf9cl5PDXnwTEdmFJvMgAkYtthdJKPhjVjU3hdAwTJ+gXKiO+PUyo2KWFwOYKZd4Ywh6PHfkbJg==
   dependencies:
     "@ctrl/tinycolor" "^3.4.1"
     "@element-plus/icons-vue" "^2.3.1"
